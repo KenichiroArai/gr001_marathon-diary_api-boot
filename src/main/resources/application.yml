@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: marathon-diary-api
+  # DB 接続先。db-xxx を差し替えた場合は URL（環境変数 GR001_DB_URL）も合わせる
+  datasource:
+    url: ${GR001_DB_URL:jdbc:postgresql://localhost:5432/marathondiary}
+    username: ${GR001_DB_USERNAME:marathondiary}
+    password: ${GR001_DB_PASSWORD:marathondiary}
+
+server:
+  port: 8080
+
+app:
+  cors:
+    allowed-origins:
+      - http://localhost:3000
+      - http://127.0.0.1:3000
+
+logging:
+  level:
+    root: INFO
+    kmg.gr.gr001: DEBUG
