@@ -115,6 +115,16 @@ batch-boot ──> batch（ジョブ定義） ──> domain
 
 batch 本体は domain だけに依存し、どの DB を使うかは batch-boot の `pom.xml` で決める。
 
+## Eclipse の設定
+
+Eclipse のビルド・パス（`.classpath`）は Git で管理している。
+内容は m2e が `pom.xml` から生成する標準の構成（JRE は `JavaSE-25`、出力先は `target/classes` / `target/test-classes`）で、PC 固有の絶対パスは含まない。
+`.settings/` と `bin/` は Git で管理しない。
+
+- `src/test/resources` は現在存在しないが、`.classpath` では任意（optional）のソースフォルダのため Eclipse のエラーにはならない
+- `.classpath` は手で編集しない。`pom.xml` を変更した場合は「Maven」→「プロジェクトの更新」で反映する
+- 「プロジェクトの更新」の実行後は `.classpath` に差分が出ていないことを確認する（差分が出た場合は意図した変更か確認してからコミットする）
+
 ## ディレクトリ構成
 
 ```text

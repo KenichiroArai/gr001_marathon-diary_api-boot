@@ -27,7 +27,6 @@ replay_pid*
 target/
 
 # Eclipse
-.classpath
 .settings/
 bin/
 

@@ -60,6 +60,7 @@ mvn package
 - DB の切り替えは `pom.xml` の db-xxx の dependency と `GR001_DB_URL` の変更だけで完結させる
 - 接続情報は環境変数で渡し、シークレットをコミットしない
 - 本ドキュメントのコーディングルール・テストルール・Javadoc ルールに従う
+- Eclipse のビルド・パス（`.classpath`）は Git で管理している。手で編集せず、`pom.xml` の変更は「Maven」→「プロジェクトの更新」で反映し、差分を確認してからコミットする（`.settings/` と `bin/` は管理しない。詳細は README を参照）
 
 ## 共通のコーディングルール
 
@@ -344,6 +345,7 @@ public class SampleClass {
 - [ ] `mvn test` で JaCoCo カバレッジ 100% を維持
 - [ ] コーディングルール（戻り値 `result`、早期リターン、処理コメント）の順守
 - [ ] Javadoc の追加 / 更新
+- [ ] `pom.xml` を変更した場合、`.classpath` の差分の確認
 
 ## やってはいけないこと
 
